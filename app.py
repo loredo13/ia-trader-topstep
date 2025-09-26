@@ -1,5 +1,3 @@
-# app.py - Sua IA Trader Topstep (versão hospedável)
-
 import os
 from groq import Groq
 from pinecone import Pinecone, ServerlessSpec
@@ -9,11 +7,11 @@ import pandas as pd
 import ta
 from flask import Flask, request, jsonify
 
-# Configurações (use variáveis de ambiente no Render)
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY", "pcsk_4zMrR2_27fyD4wXEqRvMfQ9SP9p17nbsP9a8DsrqrSkYRPrgXogPavy6Q1Zs6NoDiMBmUN")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "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")
+# Pega as chaves das variáveis de ambiente (seguro!)
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-# Inicializar serviços
+# Inicializa os serviços
 pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index("trading-memory")
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
