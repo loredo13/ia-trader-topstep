@@ -1,6 +1,6 @@
 import os
 from groq import Groq
-from pinecone import Pinecone, ServerlessSpec
+from pinecone import Pinecone, ServerlessSpec  # Nova versão (sem 'client')
 from sentence_transformers import SentenceTransformer
 import yfinance as yf
 import pandas as pd
